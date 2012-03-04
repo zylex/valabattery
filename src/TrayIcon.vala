@@ -75,7 +75,7 @@ public class TrayIcon: Gtk.Window
 			string []batteryInfo = splittedData[1].split("," , 3);
 			if(batteryInfo.length == 2)
 			{
-				if(batteryInfo[0]._strip() == "Unknown" || batteryInfo[0]._strip() == "Full)
+				if(batteryInfo[0]._strip() == "Unknown" || batteryInfo[0]._strip() == "Full")
 				{
 					m_batteryState = BatteryState.Idle;
 				}
