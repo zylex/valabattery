@@ -44,7 +44,7 @@ namespace ValaBattery
             low_battery_notified = false;
             hibernate_notified = false;
             battery = new Battery ();
-            configuration = new Configuration.from_file ("./Configuration/valabattery.conf");
+            configuration = new Configuration ();
             Notify.init ("ValaBattery");
 
             try
