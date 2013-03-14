@@ -80,15 +80,6 @@ namespace ValaBattery
                     error ("%s", e.message);
                 }
             }
-            print_settings();
-        }
-
-        private void print_settings()
-        {
-            stdout.printf("\nNotify Level = %d\nHibernate Level = %d\nCommand = %s",
-                          notify_level,
-                          hibernate_level,
-                          hibernate_command);
         }
     }
 }
