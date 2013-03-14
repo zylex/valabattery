@@ -1,7 +1,7 @@
 /* valabatteryconfiguration.vala
  *
- * Copyright (C) 2006-2010  Jürg Billeter
- * Copyright (C) 2006-2008  Raffaele Sandrini
+ * Copyright (C) 2012  Tom Englund
+ * Copyright (C) 2013  Zylex
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
