@@ -31,3 +31,4 @@ Want to see it in live action on AwesomeWM ? check "Screenshot":https://github.c
 3. a simple GUI to make the customizations.
 
 ### THIS IS A WORK IN PROGRESS
+### therefore I do not necessarily need to improve this as it does what i wanted it to do
