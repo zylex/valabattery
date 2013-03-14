@@ -84,16 +84,16 @@ namespace ValaBattery
                         show_notification ("Battery is now empty!!!", "Your computer will now go to sleep.", "xfpm-battery-empty");
                         hibernate_notified = true;
                     }
-//~                     string standard_output, standard_error;
-//~                     int exit_status;
-//~                     try
-//~                     {
-//~                         Process.spawn_command_line_sync (configuration.hibernate_command, out standard_output, out standard_error, out exit_status);
-                            hibernate_notified = false;
-                            low_battery_notified = false;
-//~                     } catch (SpawnError e) {
-//~                         stderr.printf ("%s\n", e.message);
-//~                     }
+                    string standard_output, standard_error;
+                    int exit_status;
+                    try
+                    {
+                        Process.spawn_command_line_sync (configuration.hibernate_command, out standard_output, out standard_error, out exit_status);
+                        hibernate_notified = false;
+                        low_battery_notified = false;
+                    } catch (SpawnError e) {
+                        stderr.printf ("%s\n", e.message);
+                    }
                 }
             }
 
