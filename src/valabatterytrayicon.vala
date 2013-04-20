@@ -54,7 +54,8 @@ namespace ValaBattery
                 tray_icon = new StatusIcon.from_pixbuf (new Pixbuf.from_file(last_pixbuf));
                 tray_icon.set_tooltip_text ("Pct:" + battery.percent_left.to_string() + "% " + battery.time_remaining);
                 tray_icon.set_visible (true);
-                tray_icon.popup_menu.connect(menu_popup);
+                create_menu ();
+                tray_icon.popup_menu.connect (menu_popup);
             } catch (Error e) {
                 stderr.printf ("%s\n", e.message);
             }
@@ -155,29 +156,29 @@ namespace ValaBattery
             notification.show ();
         }
 
-        public void create_menu() {
-            menu = new Gtk.Menu();
-            var menu_about = new ImageMenuItem.from_stock(Stock.ABOUT, null);
-            menu_about.activate.connect(about_clicked);
-            menu.append(menu_about);
-            var menu_quit = new ImageMenuItem.from_stock(Stock.QUIT, null);
-            menu_quit.activate.connect(Gtk.main_quit);
-            menu.append(menu_quit);
-            menu.show_all();
+        public void create_menu () {
+            menu = new Gtk.Menu ();
+            var menu_about = new ImageMenuItem.from_stock (Stock.ABOUT, null);
+            menu_about.activate.connect (about_clicked);
+            menu.append (menu_about);
+            var menu_quit = new ImageMenuItem.from_stock (Stock.QUIT, null);
+            menu_quit.activate.connect (Gtk.main_quit);
+            menu.append (menu_quit);
+            menu.show_all ();
         }
 
-        private void menu_popup(uint button, uint time) {
-            menu.popup(null, null, null, button, time);
+        private void menu_popup (uint button, uint time) {
+            menu.popup (null, null, null, button, time);
         }
 
-        private void about_clicked() {
-            var about = new AboutDialog();
-            about.set_version("2.0.0");
-            about.set_program_name("Vala Battery");
-            about.set_comments("Battery monitor written in Vala.");
-            about.set_copyright("GPL");
-            about.run();
-            about.hide();
+        private void about_clicked () {
+            var about = new AboutDialog ();
+            about.set_version ("2.0.0");
+            about.set_program_name ("Vala Battery");
+            about.set_comments ("Battery monitor written in Vala.");
+            about.set_copyright ("GPL");
+            about.run ();
+            about.hide ();
         }
     }
 }
