@@ -38,6 +38,7 @@ namespace ValaBattery
         private string last_pixbuf;
         private bool low_battery_notified;
         private bool hibernate_notified;
+        private Menu menu;  
 
         public TrayIcon ()
         {
@@ -151,6 +152,31 @@ namespace ValaBattery
         {
             var notification = new Notification (title, content, iconType);
             notification.show ();
+        }
+
+        public void create_menu() {
+            menuSystem = new Menu();
+            var menu_about = new ImageMenuItem.from_stock(Stock.ABOUT, null);
+            menu_about.activate.connect(about_clicked);
+            menu.append(menuAbout);
+            var menu_quit = new ImageMenuItem.from_stock(Stock.QUIT, null);
+            menu_quit.activate.connect(Gtk.main_quit);
+            menu.append(menuQuit);
+            menu.show_all();
+        }
+
+        private void menu_popup(uint button, uint time) {
+            menu.popup(null, null, null, button, time);
+        }
+
+        private void about_clicked() {
+            var about = new AboutDialog();
+            about.set_version("2.0.0");
+            about.set_program_name("Vala Battery");
+            about.set_comments("Battery monitor written in Vala.");
+            about.set_copyright("GPL");
+            about.run();
+            about.hide();
         }
     }
 }
