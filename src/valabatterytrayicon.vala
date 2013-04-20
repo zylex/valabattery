@@ -38,7 +38,7 @@ namespace ValaBattery
         private string last_pixbuf;
         private bool low_battery_notified;
         private bool hibernate_notified;
-        private Menu menu;  
+        private Gtk.Menu menu;  
 
         public TrayIcon ()
         {
@@ -54,6 +54,7 @@ namespace ValaBattery
                 tray_icon = new StatusIcon.from_pixbuf (new Pixbuf.from_file(last_pixbuf));
                 tray_icon.set_tooltip_text ("Pct:" + battery.percent_left.to_string() + "% " + battery.time_remaining);
                 tray_icon.set_visible (true);
+                tray_icon.popup_menu.connect(menu_popup);
             } catch (Error e) {
                 stderr.printf ("%s\n", e.message);
             }
@@ -155,13 +156,13 @@ namespace ValaBattery
         }
 
         public void create_menu() {
-            menuSystem = new Menu();
+            menu = new Gtk.Menu();
             var menu_about = new ImageMenuItem.from_stock(Stock.ABOUT, null);
             menu_about.activate.connect(about_clicked);
-            menu.append(menuAbout);
+            menu.append(menu_about);
             var menu_quit = new ImageMenuItem.from_stock(Stock.QUIT, null);
             menu_quit.activate.connect(Gtk.main_quit);
-            menu.append(menuQuit);
+            menu.append(menu_quit);
             menu.show_all();
         }
 
