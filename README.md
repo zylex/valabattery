@@ -26,9 +26,8 @@ Happy battery monitoring :D
 Want to see it in live action on AwesomeWM ? check "Screenshot":https://github.com/gulafaran/valabattery/blob/master/screenshot.png
 
 ## Roadmap
-1. Add right click menu to be able to quit.
-2. Customization of the notifications.
-3. a simple GUI to make the customizations.
+1. Customization of the notifications.
+2. a simple GUI to make the customizations.
 
 ### THIS IS A WORK IN PROGRESS
 ### therefore I do not necessarily need to improve this as it does what i wanted it to do
